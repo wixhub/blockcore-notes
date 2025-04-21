@@ -24,7 +24,8 @@ import { ContentEditorDirective } from '../../shared/content-input-directive/con
 import { MentionModule } from 'angular-mentions';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { DateTimeComponent } from "../../shared/date-time/date-time.component";
+import { DateTimeComponent } from '../../shared/date-time/date-time.component';
+import { MarkdownTextareaComponent } from '../../shared/markdown-textarea/markdown-textarea.component';
 
 export interface NoteDialogData {
   note: string;
@@ -37,9 +38,21 @@ export interface NoteDialogData {
     TranslateModule,
     MentionModule,
     MatButtonModule,
-    CommonModule, MatSnackBarModule, PickerModule, EventComponent, ContentEditorDirective, ReactiveFormsModule, FormsModule, MatButtonToggleModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatIconModule,
-    DateTimeComponent
-],
+    CommonModule,
+    MatSnackBarModule,
+    PickerModule,
+    EventComponent,
+    ContentEditorDirective,
+    ReactiveFormsModule,
+    FormsModule,
+    MatButtonToggleModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatIconModule,
+    DateTimeComponent,
+    MarkdownTextareaComponent,
+  ],
   templateUrl: 'editor.html',
   styleUrls: ['editor.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -89,7 +102,7 @@ export class EditorComponent {
 
   minDate?: number;
 
-  followingUsers : string [] = this.profileService.following.map(follower => follower.name);
+  followingUsers: string[] = this.profileService.following.map((follower) => follower.name);
 
   subscriptions: Subscription[] = [];
 
